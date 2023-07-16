@@ -8,27 +8,21 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"net/url"
 	"strings"
 )
 
 func main() {
-	// we need to use a *url.URL type instead of a string
-	u, err := url.Parse("http://localhost:3000/some/path")
+	// declare the request url and body
+	url := "http://localhost:3000/some/path"
+	body := strings.NewReader("This is the request body.")
+
+	// we can set a custom method here, like http.MethodPut
+	// or http.MethodDelete, http.MethodPatch, etc.
+	req, err := http.NewRequest(http.MethodPut, url, body)
 	if err != nil {
 		log.Fatal(err)
-	}
-	// create request body
-	body := ioutil.NopCloser(strings.NewReader("This is the request body."))
-
-	req := &http.Request{
-		// we can set a custom method here
-		Method: http.MethodPut, // or http.MethodDelete, http.MethodPatch, etc.
-		URL:    u,
-		Body:   body,
 	}
 
 	resp, err := http.DefaultClient.Do(req)

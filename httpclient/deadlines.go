@@ -15,7 +15,7 @@ import (
 func main() {
 	url := "http://www.example.com"
 
-	http.DefaultClient.Timeout = 500 * time.Millisecond
+	http.DefaultClient.Timeout = 50 * time.Millisecond
 	resp, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)

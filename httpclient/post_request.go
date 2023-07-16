@@ -1,6 +1,6 @@
 /*
  * This example shows how to make a simple HTTP POST request using the net/http
- * package. We will send a POST request to http://www.example.com, along with
+ * package. We will send a POST request along with
  * some data in the request body.
  */
 
@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	url := "http://www.example.com"
+	url := "http://localhost:3000"
 
 	// create post body
 	body := strings.NewReader("This is the request body.")

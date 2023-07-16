@@ -17,20 +17,19 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// add some headers to the request
+	// add a custom header to the request
+	// here we specify the header name and value as arguments
 	req.Header.Add("X-Custom-Header", "custom-value")
 
-	// send the request
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer resp.Body.Close()
 
-	// print the response headers
+	// print all the response headers
 	fmt.Println("Response headers:")
 	for k, v := range resp.Header {
-		log.Printf("%s: %s\n", k, v)
+		fmt.Printf("%s: %s\n", k, v)
 	}
 }
