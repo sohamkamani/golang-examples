@@ -1,6 +1,6 @@
 # Httpclient Example
 
-Example code for my [blog post](https://sohamkamani.com/golang/httpclient).
+Example code for my [blog post](https://sohamkamani.com/golang/http-client).
 
 Check out the [main readme file](../README.md) for instructions on how to run this example.
 

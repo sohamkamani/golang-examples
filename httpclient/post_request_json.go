@@ -41,5 +41,13 @@ func main() {
 	}
 	defer resp.Body.Close()
 
+	// parse the response
+
+	// responsePerson := Person{}
+	// err = json.NewDecoder(resp.Body).Decode(&responsePerson)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
 	fmt.Println("Status:", resp.Status)
 }
